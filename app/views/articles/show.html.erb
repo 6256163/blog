@@ -5,7 +5,7 @@
 
 <p>
   <strong>Text:</strong>
-  <%= @article.text%>
+  <%= image_tag(@article.text_url, width: 600) if @article.text.present? %>
 </p>
 
 <h2>Comments</h2>

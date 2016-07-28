@@ -7,12 +7,20 @@ gem 'rails', '~> 5.0.0'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+
+group :assets do
+  # Use SCSS for stylesheets
+  gem 'sass-rails', '~> 5.0'
+  # Use CoffeeScript for .coffee assets and views
+  gem 'coffee-rails', '~> 4.2'
+  # Use Uglifier as compressor for JavaScript assets
+  gem 'uglifier', '>= 1.3.0'
+end
+
+platforms :jruby do
+  gem 'trinidad'
+  gem 'jruby-openssl'
+end
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'rack-utf8_sanitizer'
@@ -27,12 +35,42 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'
+
+gem 'ruby-openid', :require => 'ruby-openid'
+
+gem 'rack-openid', :require => 'rack/openid'
+
+gem 'aaronh-chronic', :require => 'chronic'
+
+gem 'coderay'
+
+gem 'lesstile'
+
+gem 'formtastic'
+
+gem 'will_paginate', '~> 3.0.2'
+
+gem 'exception_notification', '~> 2.5.2'
+
+gem 'open_id_authentication'
+
+group :test do
+  gem 'database_cleaner'
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-websteps', :require => false
+  gem 'factory_girl'
+  gem 'rspec'
+  gem 'nokogiri', '~> 1.6.8'
+  gem 'webrat'
+end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -42,3 +80,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'devise'
+gem 'bcrypt'
+gem 'carrierwave'
